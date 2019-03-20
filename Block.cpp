@@ -42,12 +42,12 @@ Block::Block():m_index(0),m_data("data du block zero")
 	/* hash the block_0 et 
 	 * mise a jour du champ hashOfPrviousBlock  
 	 * */
-	char  hash[255];
+	char  hash0[255];
 	FILE *pFile = popen("md5sum block0.txt | awk '{print $1}'","r");
 	if (pFile !=NULL) {
-		while (fgets(hash,sizeof(hash),pFile)){
+		while (fgets(hash0,sizeof(hash0),pFile)){
 		//	cout << hash << endl;
-			this->m_hashOfPreviousBlock.append(hash);
+			this->m_hashOfPreviousBlock.append(hash0);
 			this->m_hashOfPreviousBlock.pop_back();
 		}
 	}else{
@@ -72,12 +72,12 @@ Block::Block():m_index(0),m_data("data du block zero")
 	/* hash the block_00 et 
 	 * mise a jour du champ hashOfCurrentBlock  
 	 * */
-	char  hash[255];
-	FILE *pFile = popen("md5sum block00.txt | awk '{print $1}'","r");
-	if (pFile !=NULL) {
-		while (fgets(hash,sizeof(hash),pFile)){
+	char  hash00[255];
+	FILE *pFile00 = popen("md5sum block00.txt | awk '{print $1}'","r");
+	if (pFile00!=NULL) {
+		while (fgets(hash00,sizeof(hash00),pFile00)){
 		//	cout << hash << endl;
-			this->m_hashOfCurrentBlock.append(hash);
+			this->m_hashOfCurrentBlock.append(hash00);
 			this->m_hashOfCurrentBlock.pop_back();
 		}
 	}else{
