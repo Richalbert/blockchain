@@ -11,12 +11,14 @@ using namespace std;
 
 int main(void){
 	
-	const string BLOCK_0 = "block00.txt";
+	const string BLOCK_0   = "block0.txt";
+	const string BLOCK_00  = "block00.txt";
+	const string BLOCK_000 = "block000.txt";
 
-	ifstream ifs(BLOCK_0);
+	ifstream ifs(BLOCK_000);
 	if (ifs.is_open()){
 		/* le block0 a deja ete cree */
-		cout << BLOCK_0 << " existe deja" << endl;
+		cout << BLOCK_000 << " existe deja" << endl;
 		//TODO recuperer les donnees du fichier et les verifier
 	}else{
 		cout << "*** Creation du block0 ***" << endl;

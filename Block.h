@@ -16,8 +16,8 @@ class Block {
 	private:
 		int  m_index;			
 		std::string m_timestamp;
-		std::string m_hashOfPreviousBlock;
 		std::string m_data;	
+		std::string m_hashOfPreviousBlock;
 		std::string m_hashOfCurrentBlock;		
 
 	public:

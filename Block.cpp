@@ -84,6 +84,22 @@ Block::Block():m_index(0),m_data("data du block zero")
 		cout << "popen fail" << endl;
 	}
 
+
+	/* write a block_000 
+	 * */
+	ofstream ofs3("block000.txt");
+	if (ofs3.is_open()){
+		ofs3 << this->getIndex()               << endl;
+		ofs3 << this->getTimestamp()           << endl;
+		ofs3 << this->getData()                << endl;
+		ofs3 << this->getHashOfPreviousBlock() << endl;
+		ofs3 << this->getHashOfCurrentBlock() << endl;
+		ofs3.close();
+	}else{
+		cout << "ofs3 file fail" << endl;
+	}
+
+
 	
 
 	this->toString();
