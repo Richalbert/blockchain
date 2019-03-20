@@ -36,14 +36,14 @@ OBJ = $(SRC:.cpp=.o)		# on remplace les cpp par des o
 all: main
 
 main: main.o Block.o
-	g++ -o main main.o Block.o -W -Wall -std=c++11 -pedantic -Wshadow
+	g++ -o main main.o Block.o -W -Wall -std=c++11 -pedantic 
 
 main.o: main.cpp
-	g++ -o main.o -c main.cpp -W -Wall -std=c++11 -pedantic -Wshadow
+	g++ -o main.o -c main.cpp -W -Wall -std=c++11 -pedantic 
 	
 
 Block.o: Block.cpp
-	g++ -o Block.o -c Block.cpp -W -Wall -std=c++11 -pedantic -Wshadow
+	g++ -o Block.o -c Block.cpp -W -Wall -std=c++11 -pedantic 
 
 
 .PHONY: clean mrproper
