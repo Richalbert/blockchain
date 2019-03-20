@@ -142,6 +142,7 @@ int Block::getIndex()           { return this->m_index; }
 string Block::getTimestamp()    { return this->m_timestamp; }
 string Block::getData()		{ return this->m_data; }
 string Block::getHashOfPreviousBlock()	{ return this->m_hashOfPreviousBlock; }
+string Block::getHashOfCurrentBlock()	{ return this->m_hashOfCurrentBlock; }
 
 
 
@@ -167,11 +168,11 @@ Block::~Block()
 
 void Block::toString() {
 
-	cout << "  m_index     = " << getIndex() << endl;
-        cout << "  m_timestamp = " << getTimestamp() << endl;
-        cout << "  m_data      = " << getData() << endl;
+	cout << "  m_index     = " << getIndex()               << endl;
+        cout << "  m_timestamp = " << getTimestamp()           << endl;
+        cout << "  m_data      = " << getData()                << endl;
 	cout << "  m_previous  = " << getHashOfPreviousBlock() << endl;
-	//cout << "  m_current   = " << getHashOfCurrentBlock() << endl;
+	cout << "  m_current   = " << getHashOfCurrentBlock()  << endl;
 
 }
 

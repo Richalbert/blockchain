@@ -39,7 +39,7 @@ class Block {
 		std::string getTimestamp();
 		std::string getHashOfPreviousBlock();
 		std::string getData();
-//		std::string getHashOfCurrentBlock();
+		std::string getHashOfCurrentBlock();
 
 		// setter
 		void setIndex(int index); 

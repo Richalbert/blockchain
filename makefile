@@ -52,4 +52,4 @@ clean:
 	rm -rf *.o
 
 mrproper: clean
-	rm -f $(EXEC)
+	rm -f $(EXEC) *.txt
