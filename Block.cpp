@@ -109,12 +109,13 @@ Block::Block(int index, std::string data, std::string hash):
 	m_data(data),
 	m_hashOfPreviousBlock(hash)
 {
+
 	time_t timer = time(NULL);	
 	this->m_timestamp.append(ctime(&timer));
 	this->m_timestamp.pop_back();	//remove \n
 
 	/* write a file */
-	ofstream ofs("block1.txt");
+	ofstream ofs("block11.txt");
 	if (ofs.is_open()){
 		ofs << this->getIndex()               << endl;
 		ofs << this->getTimestamp()           << endl;
@@ -127,12 +128,13 @@ Block::Block(int index, std::string data, std::string hash):
 
 	/* hash the block */
 	char  hashi[255];
-	FILE *pFile = popen("md5sum block1.txt | awk '{print $1}'","r");
+	FILE *pFile = popen("md5sum block11.txt | awk '{print $1}'","r");
 	if (pFile !=NULL) {
 		while (fgets(hashi,sizeof(hash),pFile)){
 		//	cout << hash << endl;
-			this->m_hashOfPreviousBlock.append(hashi);
-			this->m_hashOfPreviousBlock.pop_back();
+			this->m_hashOfCurrentBlock.append(hashi);
+			//TODO enlever le \n
+			//this->m_hashOfCurrentBlock.pop_back();
 		}
 	}else{
 		cout << "popen fail" << endl;
@@ -140,17 +142,22 @@ Block::Block(int index, std::string data, std::string hash):
 
 
 	/* write a block */
-	ofstream ofs2("block11.txt");
+	ofstream ofs2("block111.txt");
 	if (ofs2.is_open()){
 		ofs2 << this->getIndex()               << endl;
 		ofs2 << this->getTimestamp()           << endl;
 		ofs2 << this->getData()                << endl;
 		ofs2 << this->getHashOfPreviousBlock() << endl;
+		ofs2 << this->getHashOfCurrentBlock()  << endl;
 		ofs2.close();
 	}else{
 		cout << "ofs2 file fail" << endl;
 	}
 
+	cout << "***********" << endl;
+	cout << "* block 1 *" << endl;
+	cout << "***********" << endl;
+	this->toString();
 }
 
 //getter

@@ -29,9 +29,10 @@ int main(void){
 
 	cout << "*** Creation du block1 ***" << endl;
 	cout << "Entrer une chaine a sauvegarder : " << endl;
-	string data, reponse;
-	getline(cin,data);
-	cout << "Voulez vous sauvegarder : " << data << " [oui|non]" << endl;
+	string newData; 
+	getline(cin,newData);
+	cout << "Voulez vous sauvegarder : " << newData << " [oui|non]" << endl;
+	string reponse;
 	getline(cin,reponse);
 	if (reponse == "oui" || reponse == "OUI" || reponse == "o" || reponse == "O") {
 		cout << "vous avez repondu ... OUI" << endl;
@@ -42,20 +43,24 @@ int main(void){
 		string data;
 		string currentHash;
 
-		ifstream ifs(BLOCK_0);
+		ifstream ifs(BLOCK_000);
 		if (ifs.is_open()){
 			getline(ifs,index);
 			getline(ifs,timestamp);
-			getline(ifs,previousHash);
 			getline(ifs,data);
+			getline(ifs,previousHash);
 			getline(ifs,currentHash);
 
-		cout << "currentHash du block 0 ==> " << currentHash << endl;
+		cout << "index        du block 0 ==> " << index << endl;
+		cout << "timestamp    du block 0 ==> " << timestamp << endl;
+		cout << "data         du block 0 ==> " << data << endl;
+		cout << "previousHash du block 0 ==> " << previousHash << endl;
+		cout << "currentHash  du block 0 ==> " << currentHash << endl;
 
 		}else{ cout << "File fail "<< endl; }
 		ifs.close();	
 	
-		Block b1(1,data,previousHash);
+		Block b1(1,newData,currentHash);
 		b1.toString();
 
 	}else{
